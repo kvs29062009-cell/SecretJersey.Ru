@@ -1316,3 +1316,12 @@ body {
   }
 
 }
+
+.seo-text {
+  max-width: 900px;
+  margin: 60px auto;
+  font-size: 14px;
+  color: #777;
+  line-height: 1.6;
+}
+
