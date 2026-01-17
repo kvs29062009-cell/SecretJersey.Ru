@@ -5,6 +5,9 @@
   const deliveryPriceEl = document.getElementById("delivery-price");
   const totalPriceEl = document.getElementById("total-price");
   const DELIVERY_PRICE = 450;
+  const PROMO_CODE = "SECRET10";
+  const PROMO_DISCOUNT = 0.10; // 10%
+  let promoApplied = false;
 
   // ===== РЕНДЕР КОРЗИНЫ =====
   function renderCart() {
@@ -90,4 +93,5 @@
   }
 
 });
+
 
