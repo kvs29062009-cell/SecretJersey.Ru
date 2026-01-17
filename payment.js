@@ -17,7 +17,14 @@
     productsTotal += (item.price || 0) * (item.quantity || 1);
   });
 
-  const total = productsTotal + DELIVERY_PRICE;
+  const promo = localStorage.getItem("promo");
+let discount = 0;
+
+if (promo === "SECRET10") {
+  discount = productsTotal * 0.10;
+}
+
+const total = productsTotal - discount + DELIVERY_PRICE;
 
   // ===== ВЫВОД СУММЫ =====
   if (totalEl) {
@@ -90,6 +97,7 @@
 
         localStorage.removeItem("cart");
         localStorage.removeItem("customer");
+        localStorage.removeItem("promo");
 
        document.querySelectorAll(".payment-content").forEach(el => {
          el.style.display = "none";
@@ -113,3 +121,4 @@
   }
 
 });
+
