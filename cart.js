@@ -45,9 +45,15 @@
       cartItemsContainer.appendChild(div);
     });
 
-    productsPriceEl.textContent = productsTotal;
-    deliveryPriceEl.textContent = DELIVERY_PRICE;
-    totalPriceEl.textContent = productsTotal + DELIVERY_PRICE;
+   let discount = 0;
+
+if (promoApplied) {
+  discount = productsTotal * PROMO_DISCOUNT;
+}
+
+productsPriceEl.textContent = productsTotal;
+deliveryPriceEl.textContent = DELIVERY_PRICE;
+totalPriceEl.textContent = productsTotal - discount + DELIVERY_PRICE;
 
     document.querySelectorAll(".remove-btn").forEach(btn => {
       btn.addEventListener("click", () => {
@@ -64,6 +70,25 @@
     renderCart();
   }
 
+   const promoInput = document.getElementById("promo");
+const promoBtn = document.getElementById("apply-promo");
+const promoMessage = document.getElementById("promo-message");
+
+if (promoBtn) {
+  promoBtn.addEventListener("click", () => {
+    if (promoInput.value.trim().toUpperCase() === PROMO_CODE) {
+      promoApplied = true;
+      promoMessage.textContent = "Промокод применён 🎉 Скидка 10%";
+      promoMessage.style.color = "green";
+      localStorage.setItem("promo", "SECRET10");
+      renderCart();
+    } else {
+      promoMessage.textContent = "Неверный промокод";
+      promoMessage.style.color = "red";
+    }
+  });
+}
+   
   renderCart();
 
   // ===== ПЕРЕХОД К ОПЛАТЕ =====
@@ -93,5 +118,6 @@
   }
 
 });
+
 
 
