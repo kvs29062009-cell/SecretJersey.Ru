@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const deliveryPriceEl = document.getElementById("delivery-price");
   const totalPriceEl = document.getElementById("total-price");
 
-  const DELIVERY_PRICE = 450;
+  const DELIVERY_PRICE = 500;
   const PROMO_CODE = "SECRET10";
   const PROMO_DISCOUNT = 0.10;
 
@@ -120,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
 
 
 
