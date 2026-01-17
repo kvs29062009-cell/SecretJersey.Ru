@@ -1,6 +1,6 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
 
-  const DELIVERY_PRICE = 450;
+  const DELIVERY_PRICE = 500;
 
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const customer = JSON.parse(localStorage.getItem("customer")) || {};
@@ -121,4 +121,5 @@ const total = productsTotal - discount + DELIVERY_PRICE;
   }
 
 });
+
 
