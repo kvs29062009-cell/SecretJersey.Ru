@@ -1345,3 +1345,36 @@ body {
   cursor: pointer;
 }
 
+.qty-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.qty-btn {
+  width: 42px;
+  height: 42px;
+  font-size: 22px;
+  border-radius: 8px;
+  border: none;
+  background: #111;
+  color: #fff;
+}
+
+.qty-value {
+  font-size: 18px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.to-cart {
+  width: 100%;
+  padding: 14px;
+  background: #0a7cff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
