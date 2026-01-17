@@ -7,8 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const DELIVERY_PRICE = 450;
   const PROMO_CODE = "SECRET10";
-  const PROMO_DISCOUNT = 0.10; // 10%
+  const PROMO_DISCOUNT = 0.10;
 
+  // 👉 читаем промокод при загрузке
   let promoApplied = localStorage.getItem("promo") === PROMO_CODE;
 
   // ===== РЕНДЕР КОРЗИНЫ =====
@@ -27,26 +28,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     cart.forEach((item, index) => {
-  const qty = item.quantity ? item.quantity : 1;
-  productsTotal += item.price * qty;
 
-  const div = document.createElement("div");
-  div.className = "cart-item";
+      // 🔒 защита от старых товаров
+      const qty = item.quantity ? item.quantity : 1;
+      productsTotal += item.price * qty;
 
-  div.innerHTML = `
-    <img src="${item.image}" alt="${item.name}">
-    <div class="cart-info">
-      <h3>${item.name}</h3>
-      <p>Размер: ${item.size}</p>
-      <p>Количество: ${qty}</p>
-      <p>Цена: ${item.price} ₽</p>
-      ${item.unwanted ? `<p class="unwanted">Нежелательные клубы: ${item.unwanted}</p>` : ""}
-      <button class="remove-btn" data-index="${index}">Удалить</button>
-    </div>
-  `;
+      const div = document.createElement("div");
+      div.className = "cart-item";
 
-  cartItemsContainer.appendChild(div);
-});
+      div.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <div class="cart-info">
+          <h3>${item.name}</h3>
+          <p>Размер: ${item.size}</p>
+          <p>Количество: ${qty}</p>
+          <p>Цена: ${item.price} ₽</p>
+          ${item.unwanted ? `<p class="unwanted">Нежелательные клубы: ${item.unwanted}</p>` : ""}
+          <button class="remove-btn" data-index="${index}">Удалить</button>
+        </div>
+      `;
+
+      cartItemsContainer.appendChild(div);
+    });
 
     let discount = promoApplied ? productsTotal * PROMO_DISCOUNT : 0;
 
@@ -61,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== УДАЛЕНИЕ ТОВАРА =====
+  // ===== УДАЛЕНИЕ =====
   function removeItem(index) {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart.splice(index, 1);
@@ -78,9 +81,45 @@ document.addEventListener("DOMContentLoaded", () => {
     promoBtn.addEventListener("click", () => {
       if (promoInput.value.trim().toUpperCase() === PROMO_CODE) {
         promoApplied = true;
-        localStorage.se
+        localStorage.setItem("promo", PROMO_CODE);
+        promoMessage.textContent = "Промокод применён 🎉 Скидка 10%";
+        promoMessage.style.color = "green";
+        renderCart();
+      } else {
+        promoMessage.textContent = "Неверный промокод";
+        promoMessage.style.color = "red";
+      }
+    });
+  }
 
+  renderCart();
 
+  // ===== ПЕРЕХОД К ОПЛАТЕ =====
+  const goPaymentBtn = document.getElementById("go-payment");
+
+  if (goPaymentBtn) {
+    goPaymentBtn.addEventListener("click", () => {
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const address = document.getElementById("address").value.trim();
+
+      if (!name || !phone || !address) {
+        alert("Заполните все данные доставки");
+        return;
+      }
+
+      localStorage.setItem("customer", JSON.stringify({
+        name,
+        phone,
+        address
+      }));
+
+      window.location.href = "payment.html";
+    });
+  }
+
+});
 
 
 
