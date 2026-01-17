@@ -1,13 +1,15 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
   const cartItemsContainer = document.getElementById("cart-items");
   const productsPriceEl = document.getElementById("products-price");
   const deliveryPriceEl = document.getElementById("delivery-price");
   const totalPriceEl = document.getElementById("total-price");
+
   const DELIVERY_PRICE = 450;
   const PROMO_CODE = "SECRET10";
   const PROMO_DISCOUNT = 0.10; // 10%
-  let promoApplied = false;
+
+  let promoApplied = localStorage.getItem("promo") === PROMO_CODE;
 
   // ===== РЕНДЕР КОРЗИНЫ =====
   function renderCart() {
@@ -37,7 +39,7 @@
           <p>Размер: ${item.size}</p>
           <p>Количество: ${item.quantity}</p>
           <p>Цена: ${item.price} ₽</p>
-          ${item.unwanted ? `<p class="unwanted">Нежелательные клубы/пожелания к заказу: ${item.unwanted}</p>` : ""}
+          ${item.unwanted ? `<p class="unwanted">Нежелательные клубы/пожелания: ${item.unwanted}</p>` : ""}
           <button class="remove-btn" data-index="${index}">Удалить</button>
         </div>
       `;
@@ -45,15 +47,11 @@
       cartItemsContainer.appendChild(div);
     });
 
-   let discount = 0;
+    let discount = promoApplied ? productsTotal * PROMO_DISCOUNT : 0;
 
-if (promoApplied) {
-  discount = productsTotal * PROMO_DISCOUNT;
-}
-
-productsPriceEl.textContent = productsTotal;
-deliveryPriceEl.textContent = DELIVERY_PRICE;
-totalPriceEl.textContent = productsTotal - discount + DELIVERY_PRICE;
+    productsPriceEl.textContent = productsTotal;
+    deliveryPriceEl.textContent = DELIVERY_PRICE;
+    totalPriceEl.textContent = productsTotal - discount + DELIVERY_PRICE;
 
     document.querySelectorAll(".remove-btn").forEach(btn => {
       btn.addEventListener("click", () => {
@@ -70,54 +68,17 @@ totalPriceEl.textContent = productsTotal - discount + DELIVERY_PRICE;
     renderCart();
   }
 
-   const promoInput = document.getElementById("promo");
-const promoBtn = document.getElementById("apply-promo");
-const promoMessage = document.getElementById("promo-message");
+  // ===== ПРОМОКОД =====
+  const promoInput = document.getElementById("promo");
+  const promoBtn = document.getElementById("apply-promo");
+  const promoMessage = document.getElementById("promo-message");
 
-if (promoBtn) {
-  promoBtn.addEventListener("click", () => {
-    if (promoInput.value.trim().toUpperCase() === PROMO_CODE) {
-      promoApplied = true;
-      promoMessage.textContent = "Промокод применён 🎉 Скидка 10%";
-      promoMessage.style.color = "green";
-      localStorage.setItem("promo", "SECRET10");
-      renderCart();
-    } else {
-      promoMessage.textContent = "Неверный промокод";
-      promoMessage.style.color = "red";
-    }
-  });
-}
-   
-  renderCart();
+  if (promoBtn) {
+    promoBtn.addEventListener("click", () => {
+      if (promoInput.value.trim().toUpperCase() === PROMO_CODE) {
+        promoApplied = true;
+        localStorage.se
 
-  // ===== ПЕРЕХОД К ОПЛАТЕ =====
-  const goPaymentBtn = document.getElementById("go-payment");
-
-  if (goPaymentBtn) {
-    goPaymentBtn.addEventListener("click", () => {
-
-      const name = document.getElementById("name").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const address = document.getElementById("address").value.trim();
-
-      if (!name || !phone || !address) {
-        alert("Заполните все данные доставки");
-        return;
-      }
-
-      // 🔥 СОХРАНЯЕМ ДАННЫЕ ПОКУПАТЕЛЯ
-      localStorage.setItem("customer", JSON.stringify({
-        name,
-        phone,
-        address
-      }));
-
-      window.location.href = "payment.html";
-    });
-  }
-
-});
 
 
 
