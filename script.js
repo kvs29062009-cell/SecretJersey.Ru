@@ -18,37 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Выберите размер");
       return;
     }
-
-     // ===== РЕНДЕР КОЛИЧЕСТВА =====
-  function renderQty(qty) {
-    qtyContainer.innerHTML = `
-      <div class="qty-box">
-        <button class="qty-btn" id="minus">−</button>
-        <span class="qty-value">${qty}</span>
-        <button class="qty-btn" id="plus">+</button>
-      </div>
-    `;
-
-    document.getElementById("plus").onclick = () => updateQty(qty + 1);
-    document.getElementById("minus").onclick = () => updateQty(qty - 1);
-  }
-
-  // ===== ОБНОВЛЕНИЕ КОЛИЧЕСТВА =====
-  function updateQty(newQty) {
-    if (newQty <= 0) {
-      removeFromCart();
-      qtyContainer.innerHTML = `
-        <button class="add-to-cart" id="add-to-cart">
-          Добавить в корзину
-        </button>
-      `;
-      document.getElementById("add-to-cart").onclick = () => addBtn.click();
-      return;
-    }
-
-    saveToCart(newQty);
-    renderQty(newQty);
-  }
     
     const product = {
       name: document.querySelector("h1").textContent,
@@ -67,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
 
 
 
