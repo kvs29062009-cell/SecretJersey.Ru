@@ -1325,3 +1325,23 @@ body {
   line-height: 1.6;
 }
 
+.promo-block {
+  margin: 15px 0;
+}
+
+.promo-block input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.promo-block button {
+  margin-top: 8px;
+  width: 100%;
+  padding: 10px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
