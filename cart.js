@@ -27,25 +27,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     cart.forEach((item, index) => {
-      productsTotal += item.price * item.quantity;
+  const qty = item.quantity ? item.quantity : 1;
+  productsTotal += item.price * qty;
 
-      const div = document.createElement("div");
-      div.className = "cart-item";
+  const div = document.createElement("div");
+  div.className = "cart-item";
 
-      div.innerHTML = `
-        <img src="${item.image}" alt="${item.name}">
-        <div class="cart-info">
-          <h3>${item.name}</h3>
-          <p>Размер: ${item.size}</p>
-          <p>Количество: ${item.quantity}</p>
-          <p>Цена: ${item.price} ₽</p>
-          ${item.unwanted ? `<p class="unwanted">Нежелательные клубы/пожелания: ${item.unwanted}</p>` : ""}
-          <button class="remove-btn" data-index="${index}">Удалить</button>
-        </div>
-      `;
+  div.innerHTML = `
+    <img src="${item.image}" alt="${item.name}">
+    <div class="cart-info">
+      <h3>${item.name}</h3>
+      <p>Размер: ${item.size}</p>
+      <p>Количество: ${qty}</p>
+      <p>Цена: ${item.price} ₽</p>
+      ${item.unwanted ? `<p class="unwanted">Нежелательные клубы: ${item.unwanted}</p>` : ""}
+      <button class="remove-btn" data-index="${index}">Удалить</button>
+    </div>
+  `;
 
-      cartItemsContainer.appendChild(div);
-    });
+  cartItemsContainer.appendChild(div);
+});
 
     let discount = promoApplied ? productsTotal * PROMO_DISCOUNT : 0;
 
@@ -78,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (promoInput.value.trim().toUpperCase() === PROMO_CODE) {
         promoApplied = true;
         localStorage.se
+
 
 
 
