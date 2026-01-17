@@ -1378,3 +1378,98 @@ body {
   font-size: 16px;
 }
 
+/* ===== КОНТРОЛЫ КОРЗИНЫ НА СТРАНИЦЕ ТОВАРА ===== */
+
+#cart-controls {
+  margin-top: 20px;
+}
+
+/* Основная кнопка "Добавить в корзину" */
+#add-to-cart,
+#go-to-cart {
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Кнопка "Добавить в корзину" */
+#add-to-cart {
+  background: linear-gradient(135deg, #000000, #2b2b2b);
+  color: #fff;
+}
+
+#add-to-cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Контейнер − 1 + */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+/* Кнопки − и + */
+.quantity-controls button {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  border: none;
+  font-size: 26px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #f2f2f2;
+  transition: all 0.2s ease;
+}
+
+.quantity-controls button:hover {
+  background: #e5e5e5;
+}
+
+/* Число количества */
+.quantity-controls span {
+  flex: 1;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Кнопка "В корзину" */
+#go-to-cart {
+  background: linear-gradient(135deg, #1a1a1a, #000);
+  color: #fff;
+}
+
+#go-to-cart:hover {
+  background: linear-gradient(135deg, #000, #1a1a1a);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ===== */
+@media (max-width: 768px) {
+  #add-to-cart,
+  #go-to-cart {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .quantity-controls button {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+
+  .quantity-controls span {
+    font-size: 20px;
+  }
+}
+
