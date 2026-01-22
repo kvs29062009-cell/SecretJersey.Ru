@@ -20,7 +20,7 @@
   const promo = localStorage.getItem("promo");
 let discount = 0;
 
-if (promo === "SECRET10") {
+if (promo === "JERSEY1") {
   discount = productsTotal * 0.10;
 }
 
@@ -121,5 +121,6 @@ const total = productsTotal - discount + DELIVERY_PRICE;
   }
 
 });
+
 
 
