@@ -1,6 +1,6 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
 
-  const DELIVERY_PRICE = 500;
+  const DELIVERY_PRICE = 550;
 
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const customer = JSON.parse(localStorage.getItem("customer")) || {};
@@ -20,7 +20,7 @@
   const promo = localStorage.getItem("promo");
 let discount = 0;
 
-if (promo === "JERSEY1") {
+if (promo === "JANUARY") {
   discount = productsTotal * 0.10;
 }
 
@@ -121,6 +121,7 @@ const total = productsTotal - discount + DELIVERY_PRICE;
   }
 
 });
+
 
 
 
