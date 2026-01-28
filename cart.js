@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const deliveryPriceEl = document.getElementById("delivery-price");
   const totalPriceEl = document.getElementById("total-price");
 
-  const DELIVERY_PRICE = 500;
-  const PROMO_CODE = "JERSEY1";
+  const DELIVERY_PRICE = 550;
+  const PROMO_CODE = "JANUARY";
   const PROMO_DISCOUNT = 0.10;
 
   // 👉 читаем промокод при загрузке
@@ -120,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
 
 
 
