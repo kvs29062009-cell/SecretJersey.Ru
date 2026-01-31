@@ -435,7 +435,7 @@ input {
   }
 
   .bottom-text h2 {
-    font-size: 22px;
+    font-size: 12px;
   }
 
   .bottom-text p {
@@ -1472,5 +1472,6 @@ body {
     font-size: 20px;
   }
 }
+
 
 
