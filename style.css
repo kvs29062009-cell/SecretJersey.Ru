@@ -439,7 +439,7 @@ input {
   }
 
   .bottom-text p {
-    font-size: 15px;
+    font-size: 5px;
   }
 }
 
@@ -1472,6 +1472,7 @@ body {
     font-size: 20px;
   }
 }
+
 
 
 
