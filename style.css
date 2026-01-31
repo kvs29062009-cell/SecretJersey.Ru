@@ -60,6 +60,7 @@ main {
 .sizes {
   display: flex;
   gap: 10px;
+  border-radius: 30px;
   margin-bottom: 20px;
 }
 
@@ -435,11 +436,11 @@ input {
   }
 
   .bottom-text h2 {
-    font-size: 12px;
+    font-size: 22px;
   }
 
   .bottom-text p {
-    font-size: 5px;
+    font-size: 15px;
   }
 }
 
@@ -1472,6 +1473,7 @@ body {
     font-size: 20px;
   }
 }
+
 
 
 
