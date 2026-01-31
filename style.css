@@ -442,6 +442,10 @@ input {
   .bottom-text p {
     font-size: 15px;
   }
+
+  .contact-cta p {
+    font-size: 15px;
+  }
 }
 
 /* ===== MOBILE PRODUCT PAGE (FIXED) ===== */
@@ -1473,6 +1477,7 @@ body {
     font-size: 20px;
   }
 }
+
 
 
 
