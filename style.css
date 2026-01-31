@@ -67,6 +67,7 @@ main {
 .size {
   padding: 12px 18px;
   border: 1px solid #111;
+  border-radius: 30px;
   background: none;
   cursor: pointer;
   font-weight: 500;
@@ -1477,6 +1478,7 @@ body {
     font-size: 20px;
   }
 }
+
 
 
 
