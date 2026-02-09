@@ -20,7 +20,7 @@
   const promo = localStorage.getItem("promo");
 let discount = 0;
 
-if (promo === "SECRET5") {
+if (promo === "VALENTINEDAY") {
   discount = productsTotal * 0.10;
 }
 
@@ -121,6 +121,7 @@ const total = productsTotal - discount + DELIVERY_PRICE;
   }
 
 });
+
 
 
 
