@@ -1479,6 +1479,47 @@ body {
   }
 }
 
+.price-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+/* старая цена */
+.old-price {
+  font-size: 16px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+/* новая цена */
+.new-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+}
+
+.price-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+/* старая цена */
+.old-price {
+  font-size: 16px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+/* новая цена */
+.new-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+}
 
 
 
