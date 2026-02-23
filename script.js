@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const productBase = {
     id: "club-box",
     name: document.querySelector("h1").textContent,
-    price: Number(document.querySelector(".price").textContent.replace(/\D/g, "")),
+    price: Number(document.querySelector(".new-price").textContent.replace(/\D/g, "")),
     image: document.querySelector(".product-img").getAttribute("src")
   };
 
@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderAdd();
 
 });
+
 
 
 
