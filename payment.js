@@ -20,7 +20,7 @@
   const promo = localStorage.getItem("promo");
 let discount = 0;
 
-if (promo === "SPRING") {
+if (promo === "SECRET20") {
   discount = productsTotal * 0.10;
 }
 
