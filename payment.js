@@ -21,7 +21,7 @@
 let discount = 0;
 
 if (promo === "SECRET20") {
-  discount = productsTotal * 0.10;
+  discount = productsTotal * 0.20;
 }
 
 const total = productsTotal - discount + DELIVERY_PRICE;
