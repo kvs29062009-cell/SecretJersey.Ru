@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPriceEl = document.getElementById("total-price");
 
   const DELIVERY_PRICE = 550;
-  const PROMO_CODE = "SECRET20";
+  const PROMO_CODE = "";
   const PROMO_DISCOUNT = 0.20;
 
   // 👉 читаем промокод при загрузке
