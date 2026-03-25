@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPriceEl = document.getElementById("total-price");
 
   const DELIVERY_PRICE = 550;
-  const PROMO_CODE = "CLUBBOX";
+  const PROMO_CODE = "CX";
   const PROMO_DISCOUNT = 0.10;
 
   // 👉 читаем промокод при загрузке
