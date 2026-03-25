@@ -20,8 +20,8 @@
   const promo = localStorage.getItem("promo");
 let discount = 0;
 
-if (promo === "") {
-  discount = productsTotal * 0.20;
+if (promo === "CLUBBOX") {
+  discount = productsTotal * 0.10;
 }
 
 const total = productsTotal - discount + DELIVERY_PRICE;
