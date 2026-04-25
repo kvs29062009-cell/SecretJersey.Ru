@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ---------- КОНСТАНТЫ ----------
   const DELIVERY_PRICE = 600;
   const PROMO_CODE = "UV28U30";
-  const PROMO_DISCOUNT = 0.10;
+  const PROMO_DISCOUNT = 0.20;
 
   // ---------- НАСТРОЙКИ EMAILJS (ЗАМЕНИТЕ НА СВОИ) ----------
   const EMAILJS_SERVICE_ID = "service_g05zmnl";   // Ваш Service ID
