@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPriceEl = document.getElementById("total-price");
 
   const DELIVERY_PRICE = 600;
-  const PROMO_CODE = "CX";
-  const PROMO_DISCOUNT = 0.10;
+  const PROMO_CODE = "UV28U30";
+  const PROMO_DISCOUNT = 0.20;
 
   // 👉 читаем промокод при загрузке
   let promoApplied = localStorage.getItem("promo") === PROMO_CODE;
