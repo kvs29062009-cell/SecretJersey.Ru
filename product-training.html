@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Country Box — Secret Jersey</title>
+  <title>Secret Jersey — Секретная футболка футбольного клуба</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html">← На главную</a>
+</header>
+
+<header class="mini-header">
+  <a href="index.html" class="back-btn">←</a>
+  <span class="header-title">Secret Jersey</span>
+  <a href="cart.html" class="cart-link">🛒</a>
+</header>
+
+<main class="product">
+
+  <div class="product-image">
+    <img src="images/training.jpg" alt="Training Box" class="product-img">
+  </div>
+
+  <div class="product-info">
+    <h1>Training Box</h1>
+
+    <p class="product-description">
+      В этом боксе вас будут ждать тренировочные костюмы команд и сборных со всего света. В комплект входят тренировочные штаны и тренировочная кофта-полузамок
+    </p>
+
+    <p class="new-price">3590 ₽</p>
+
+    <div class="sizes">
+      <p>Выберите размер:</p>
+      <button class="size">S</button>
+      <button class="size">M</button>
+      <button class="size">L</button>
+      <button class="size">XL</button>
+      <button class="size">XXL</button>
+    </div>
+
+<div class="size-table-wrapper">
+  <h3>Размерная сетка</h3>
+
+  <table class="size-table">
+    <thead>
+      <tr>
+        <th>Размер (INT)</th>
+        <th>Рост</th>
+        <th>Ширина от груди, см</th>
+        <th>Длина, см</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>XS</td>
+        <td>155–162</td>
+        <td>47</td>
+        <td>68</td>
+      </tr>
+      <tr>
+        <td>S</td>
+        <td>162–170</td>
+        <td>49</td>
+        <td>71</td>
+      </tr>
+      <tr>
+        <td>M</td>
+        <td>170–180</td>
+        <td>51</td>
+        <td>73</td>
+      </tr>
+      <tr>
+        <td>L</td>
+        <td>181–188</td>
+        <td>54</td>
+        <td>75</td>
+      </tr>
+      <tr>
+        <td>XL</td>
+        <td>187–192</td>
+        <td>57</td>
+        <td>78</td>
+      </tr>
+      <tr>
+        <td>XXL</td>
+        <td>182–197</td>
+        <td>59</td>
+        <td>81</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+    <div class="unwanted-clubs">
+      <label>
+        Нежелательные клубы или сборные (до 5 штук) или пожелания к заказу:
+        <input type="text" id="unwanted-clubs" placeholder="Например: Испания, ПСЖ, Франция">
+      </label>
+    </div>
+
+    <div id="cart-controls">
+  <button id="add-to-cart" class="buy">Добавить в корзину</button>
+</div>
+
+  </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
+
