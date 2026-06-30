@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Корзина — Secret Jersey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="mini-header">
+  <a href="index.html" class="back-btn">←</a>
+  <span class="header-title">Корзина</span>
+  <a href="index.html" class="cart-link">🏠</a>
+</header>
+
+<main class="cart">
+
+  <h1>Корзина</h1>
+
+  <div id="cart-items"></div>
+
+  <!-- ===== АКЦИОННЫЙ БАННЕР ===== -->
+  <div class="gift-banner" id="gift-banner">
+    <div class="gift-banner-inner">
+      <img src="images/nike-mind-001.jpg" alt="Nike Mind 001" class="gift-img" id="gift-img">
+      <div class="gift-info">
+        <p class="gift-title">🎁 При покупке 2 боксов — Nike Mind 001 в подарок!</p>
+        <p class="gift-status" id="gift-status">Добавьте ещё 1 бокс для подарка</p>
+        <div class="gift-size-selector">
+          <span class="gift-size-label">Выберите размер:</span>
+          <div class="gift-sizes">
+            <button class="gift-size-btn" data-size="41">41</button>
+            <button class="gift-size-btn" data-size="42">42</button>
+            <button class="gift-size-btn" data-size="43">43</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ДОСТАВКА ===== -->
+  <div class="delivery">
+    <label>Данные доставки</label>
+    <input type="text" id="name" placeholder="Ваше имя" required>
+    <input type="tel" id="phone" placeholder="Телефон" required>
+    <input type="text" id="address" placeholder="ПВЗ СДЭК (город, адрес)" required>
+  </div>
+
+  <!-- ===== ПРОМОКОД ===== -->
+  <div class="promo-block">
+    <label>Промокод</label>
+    <input type="text" id="promo" placeholder="Введите промокод">
+    <button id="apply-promo">Применить</button>
+    <div id="promo-message"></div>
+  </div>
+
+  <!-- ===== ИТОГО ===== -->
+  <div class="cart-total">
+    <p>Товары: <span id="products-price">0</span> ₽</p>
+    <p>Доставка: <span id="delivery-price">600</span> ₽</p>
+    <hr>
+    <p class="total">Итого: <span id="total-price">0</span> ₽</p>
+  </div>
+
+  <button id="go-payment" class="buy">Перейти к оплате</button>
+
+</main>
+
+<footer class="footer">
+  <p>© 2025 Secret Jersey</p>
+</footer>
+
+<script src="cart.js"></script>
+</body>
+</html>
