@@ -6,65 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPriceEl = document.getElementById("total-price");
 
   const DELIVERY_PRICE = 600;
-  const PROMO_CODE = "UV28U30";
+  const PROMO_CODE = "UV280";
   const PROMO_DISCOUNT = 0.20;
 
   let promoApplied = localStorage.getItem("promo") === PROMO_CODE;
-
-  // ---- БАННЕР ПОДАРКА ----
-  const giftBanner = document.getElementById("gift-banner");
-  const giftStatus = document.getElementById("gift-status");
-  const giftSizeBtns = document.querySelectorAll(".gift-size-btn");
-
-  let selectedGiftSize = localStorage.getItem("giftSize") || null;
-
-  function updateGiftBanner(cart) {
-    if (!giftBanner) return;
-    const itemCount = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
-    const isEligible = itemCount >= 2;
-
-    // Обновляем текст статуса
-    if (giftStatus) {
-      if (isEligible) {
-        giftStatus.textContent = "🎉 Подарок активирован! Выберите размер ниже.";
-        giftStatus.className = "gift-status active";
-      } else {
-        if (itemCount === 1) {
-          giftStatus.textContent = "Добавьте ещё 1 товар для бесплатных Nike Mind 001";
-        } else {
-          const needed = 2 - itemCount;
-          giftStatus.textContent = `Добавьте ещё ${needed} товара(ов) для подарка`;
-        }
-        giftStatus.className = "gift-status";
-      }
-    }
-
-    // Управление кнопками выбора размера
-    giftSizeBtns.forEach(btn => {
-      if (isEligible) {
-        btn.disabled = false;
-        btn.classList.remove("disabled");
-        // Подсвечиваем сохранённый размер (если есть)
-        btn.classList.toggle("active", btn.dataset.size === selectedGiftSize);
-      } else {
-        btn.disabled = true;
-        btn.classList.add("disabled");
-        btn.classList.remove("active");
-      }
-    });
-  }
-
-  // Обработчики выбора размера (только если кнопка активна)
-  giftSizeBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      if (btn.disabled) return; // дополнительная защита
-      const size = btn.dataset.size;
-      selectedGiftSize = size;
-      localStorage.setItem("giftSize", size);
-      giftSizeBtns.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-    });
-  });
+  
 
   // ===== РЕНДЕР КОРЗИНЫ =====
   function renderCart() {
