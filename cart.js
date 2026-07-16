@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const cartItemsContainer = document.getElementById("cart-items");
@@ -6,11 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPriceEl = document.getElementById("total-price");
 
   const DELIVERY_PRICE = 600;
-  const PROMO_CODE = "UV280";
+  const PROMO_CODE = "UV28U30";
   const PROMO_DISCOUNT = 0.20;
 
+  // 👉 читаем промокод при загрузке
   let promoApplied = localStorage.getItem("promo") === PROMO_CODE;
-  
 
   // ===== РЕНДЕР КОРЗИНЫ =====
   function renderCart() {
@@ -24,13 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
       productsPriceEl.textContent = "0";
       deliveryPriceEl.textContent = DELIVERY_PRICE;
       totalPriceEl.textContent = DELIVERY_PRICE;
-      if (giftBanner) giftBanner.style.display = "none";
       return;
-    } else {
-      if (giftBanner) giftBanner.style.display = "block";
     }
 
     cart.forEach((item, index) => {
+
+      // 🔒 защита от старых товаров
       const qty = item.quantity ? item.quantity : 1;
       productsTotal += item.price * qty;
 
@@ -63,9 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
         removeItem(btn.dataset.index);
       });
     });
-
-    // Обновляем баннер после рендера
-    updateGiftBanner(cart);
   }
 
   // ===== УДАЛЕНИЕ =====
@@ -113,18 +110,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      const itemCount = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
-      if (itemCount >= 2 && !selectedGiftSize) {
-        alert("Выберите размер кроссовок для подарка!");
-        return;
-      }
-
       localStorage.setItem("customer", JSON.stringify({
         name,
         phone,
-        address,
-        giftSize: selectedGiftSize || null
+        address
       }));
 
       window.location.href = "payment.html";
@@ -132,3 +121,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+
