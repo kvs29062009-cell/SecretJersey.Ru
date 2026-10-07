@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Корзина — Secret Jersey</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#2B1A12">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="mini-header">
+  <a href="index.html" class="back-btn">←</a>
+  <span class="header-title">Корзина</span>
+  <a href="index.html" class="cart-link">🏠</a>
+</header>
+
+<main class="cart">
+  <h1>Корзина</h1>
+
+  <div id="cart-items"></div>
+
+  <!-- ===== ДОСТАВКА ===== -->
+  <div class="delivery">
+    <label>Данные доставки</label>
+    <input type="text" id="name" placeholder="Ваше имя" required>
+    <input type="tel" id="phone" placeholder="Телефон" required>
+    <input type="text" id="address" placeholder="ПВЗ СДЭК (город, адрес)" required>
+  </div>
+
+  <!-- ===== ПРОМОКОД ===== -->
+  <div class="promo-block">
+    <label>Промокод</label>
+    <input type="text" id="promo" placeholder="Введите промокод">
+    <button id="apply-promo">Применить</button>
+    <div id="promo-message"></div>
+  </div>
+
+  <!-- ===== ИТОГО ===== -->
+  <div class="cart-total">
+    <p><span>Товары:</span> <span><span id="products-price">0</span> ₽</span></p>
+    <p><span>Доставка:</span> <span><span id="delivery-price">600</span> ₽</span></p>
+    <hr>
+    <p class="total"><span>Итого:</span> <span><span id="total-price">0</span> ₽</span></p>
+  </div>
+
+  <button id="go-payment" class="buy">Перейти к оплате</button>
+</main>
+
+<footer class="footer">
+  <p>© 2025 Secret Jersey</p>
+</footer>
+
+<script src="cart.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>
