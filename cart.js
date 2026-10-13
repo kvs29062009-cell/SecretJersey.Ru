@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPriceEl = document.getElementById("total-price");
 
   const DELIVERY_PRICE = 600;
-  const PROMO_CODE = "UV28U30";
+  const PROMO_CODE = "UCL2026";
   const PROMO_DISCOUNT = 0.20;
 
   // 👉 читаем промокод при загрузке
